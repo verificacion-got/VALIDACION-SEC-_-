@@ -111,9 +111,9 @@
 
             try {
                 // Cargar el PDF original con el nombre correcto
-                const urlPDF = 'SecHernanVilos.pdf'; 
+                const urlPDF = 'SecHernan.pdf'; 
                 const respuesta = await fetch(urlPDF);
-                if (!respuesta.ok) throw new Error("No se pudo encontrar el archivo SecHernanVilos.pdf");
+                if (!respuesta.ok) throw new Error("No se pudo encontrar el archivo SecHernan.pdf");
                 const pdfBytesOriginales = await respuesta.arrayBuffer();
                 
                 // Iniciar la modificación del PDF
@@ -150,7 +150,7 @@
                 const blob = new Blob([pdfModificado], { type: 'application/pdf' });
                 const linkDescarga = document.createElement('a');
                 linkDescarga.href = URL.createObjectURL(blob);
-                linkDescarga.download = 'SecHernanVilos.pdf'; 
+                linkDescarga.download = 'SecHernan.pdf'; 
                 
                 document.body.appendChild(linkDescarga);
                 linkDescarga.click();
@@ -159,7 +159,7 @@
 
             } catch (error) {
                 console.error("Error procesando el PDF:", error);
-                alert("Hubo un error al generar el PDF. Verifica que estás en un servidor web y que el archivo SecHernanVilos.pdf existe en la misma carpeta.");
+                alert("Hubo un error al generar el PDF. Verifica que estás en un servidor web y que el archivo SecHernan.pdf existe en la misma carpeta.");
             } finally {
                 btn.innerText = "Descargar Certificado (PDF)";
                 btn.disabled = false;
